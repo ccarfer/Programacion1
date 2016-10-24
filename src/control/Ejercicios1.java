@@ -1,6 +1,7 @@
 package control;
 
 import java.util.Date;
+import java.util.Scanner;
 
 import modelo.Estudiante;
 import modelo.Persona;
@@ -36,9 +37,51 @@ public class Ejercicios1 {
 
 		// crear un objeto de la clase Estudiante
 
-		Estudiante est1 = new Estudiante("43452345L", "Carlos", 'M', new Date(), 15, "20120901");
+		// Estudiante est1 = new Estudiante("43452345L", "Carlos", 'M', new
+		// Date(), 15, "20120901");
 
-		ej1.creaListaPersonas();
+		// ej1.creaListaPersonas();
+		ej1.adivinaNumero();
+	}
+
+	public void adivinaNumero() {
+		generarIntervalo();// se piden 2 numeros y se genera
+		juegaAdivinaNumero();// numero a adivinar
+
+	}
+
+	private void juegaAdivinaNumero() {
+
+	}
+
+	private void generarIntervalo() {
+		System.out.println("Generacion del numero en un intervalo");
+		boolean error1 = true;
+		while (error1) {
+			System.out.println("teclee un intervalo(min, máx)");
+			Scanner teclado = new Scanner(System.in);
+			String intervalo = teclado.nextLine();
+			String[] limites = intervalo.split(",");
+			// validamos que hay dos numeros
+			if (limites.length != 2) {
+				error1 = false;
+				continue;
+			}
+			try {
+				int min = Integer.parseInt(limites[0]);
+				int máx = Integer.parseInt(limites[1]);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+	public void convierteAenteros() {
+		// definimos un arry de cadenas
+		// String[] numeros = new String(15);
+		String[] numeros = { "123", "650", "486", "1", "0987" };
 	}
 
 	public void crearHebras(int cuantas) {
@@ -77,7 +120,6 @@ public class Ejercicios1 {
 				// if (listaPersonas[i] != null)
 				System.out.println(listaPersonas[i].getNombre());
 			} catch (NullPointerException e) {
-				// TODO Auto-generated catch block
 				System.out.println("Objeto nulo");
 			}
 		}

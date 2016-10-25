@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import modelo.Estudiante;
+import modelo.Intento;
 import modelo.Persona;
 
 public class Ejercicios1 {
@@ -53,6 +54,7 @@ public class Ejercicios1 {
 	}
 
 	public void adivinaNumero() {
+
 		int[] limites = generarIntervalo(); // se piden dos numeros y se genera
 		int numeroAdivinar = generaAleatorioEntre(limites[0], limites[1]); // numero
 																			// //
@@ -61,8 +63,9 @@ public class Ejercicios1 {
 	}
 
 	private void jugarAdivinaNumero(int numeroAdivinar) {
-
-		boolean jugando =true;
+		int contadorIntentos = 0;
+		Intento[] intentos = new Intento[200];
+		boolean jugando = true;
 		do { // bucle del juego
 
 			// validamos el número jugado
@@ -85,6 +88,22 @@ public class Ejercicios1 {
 					System.out.println("Número incorrecto!");
 				}
 			}
+
+			// creamos el intento
+			Intento intento = new Intento(numeroJugado, new Date());
+			// guardamos el intento..
+			intentos[contadorIntentos++] = intento;
+
+			// mostrar los intentos hasta ahora ....
+			for (int i = 0; i < intentos.length; i++) {
+
+				try {
+					System.out.printf("%d. \t%d\t%s\n", i+1, intentos[i].getNumero(), intentos[i].getFechaHora());
+				} catch (NullPointerException e) {
+					break;
+				}
+			}
+
 			// tenemos un número tecleado válido
 			if (numeroJugado < numeroAdivinar)
 				System.out.println("Pruebe un número MAYOR... ");
@@ -92,10 +111,10 @@ public class Ejercicios1 {
 				System.out.println("Pruebe un número MENOR... ");
 			else {
 				System.out.println("ENHORABUENA, HA ACERTADO!!... ");
-			    jugando = false;
+				jugando = false;
 			}
 
-		} while (jugando );
+		} while (jugando);
 
 	}
 
@@ -132,7 +151,7 @@ public class Ejercicios1 {
 				continue;
 			}
 		}
-		System.out.println("validación superada");
+		// System.out.println("validación superada");
 		int[] intervalo = new int[2];
 		intervalo[0] = min;
 		intervalo[1] = max;

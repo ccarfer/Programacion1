@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="521.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
+   <children>
+      <Button fx:id="fxml_botongenerar" layoutX="130.0" layoutY="90.0" mnemonicParsing="false" onAction="#manejaBoton" prefHeight="25.0" prefWidth="96.0" text="Generar" />
+      <Button fx:id="fxml_Probar" layoutX="23.0" layoutY="366.0" mnemonicParsing="false" onAction="#manejaBotonJugar" prefHeight="25.0" prefWidth="96.0" text="Probar" />
+      <TextField fx:id="fxml_minimo" layoutX="4.0" layoutY="35.0" promptText="introduce valor minimo" />
+      <TextField fx:id="fxml_maximo" layoutX="178.0" layoutY="35.0" promptText="Introduce el máximo:" />
+      <TextField fx:id="fxml_mensaje" layoutX="36.0" layoutY="121.0" prefHeight="25.0" prefWidth="285.0" />
+      <TextField fx:id="fxml_numeroJugar" layoutX="43.0" layoutY="295.0" onAction="#manejaBotonJugar" prefHeight="25.0" prefWidth="57.0" />
+      <TextField fx:id="fxml_intentos" layoutX="146.0" layoutY="227.0" prefHeight="253.0" prefWidth="181.0" />
+   </children>
+</AnchorPane>

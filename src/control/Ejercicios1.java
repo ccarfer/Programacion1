@@ -52,29 +52,54 @@ public class Ejercicios1 {
 		 * System.out.println("Encontrado"); else System.out.println(
 		 * "No encontrado"); }
 		 */
-		int[] numeros1 = { 3, 1, 2, 5, 4, 6, 99 };
-		int[] numeros2 = { 3, 1, 2, 5, 4, 6, 99, 25, 68, 85, 9 };
-		ej1.ordenaListaNumero(numeros1);
-		ej1.ordenaListaNumero(numeros2);
 
-		int[] numeros3 = ej1.mezclaArrayEnteros(numeros1, numeros2);
-		System.out.println("Mezcla terminada");
+		/*
+		 * int[] numeros1 = { 3, 1, 2, 5, 4, 6, 99 }; int[] numeros2 = { 3, 1,
+		 * 2, 5, 4, 6, 99, 25, 68, 85, 9 }; ej1.ordenaListaNumero(numeros1);
+		 * ej1.ordenaListaNumero(numeros2);
+		 * 
+		 * int[] numeros3 = ej1.mezclaArrayEnteros(numeros1, numeros2);
+		 * System.out.println("Mezcla terminada"); }
+		 */
+
+		int[][] matriz = { { 1, 4, 3 }, { 5, 8 }, { 2, 7, 6, 9 } };
+		//int[] Sumafilas = ej1.SumaMatrizfilasEnteros(matriz);
+		int[] Sumacolumnas = ej1.SumaMatrizcolumnasEnteros(matriz);
+		System.out.println("Suma matriz terminada");
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------
-	/*
-	 * public int[] mezclaArraysEnteros(int[] array1, int[] array2) { int[]
-	 * arrayResultado = new int[array1.length + array2.length]; int i = 0; int j
-	 * = 0; int k = 0;
-	 * 
-	 * while (k < arrayResultado.length) { if (array1[i] < array2[j]) {
-	 * arrayResultado[k] = array1[i]; i++; } else { arrayResultado[k] =
-	 * array2[j]; j++; } k++; }
-	 * 
-	 * return arrayResultado;
-	 * 
-	 * }
-	 */
+	public int[] SumaMatrizfilasEnteros(int[][] matriz) {
+		int[] acum = new int[matriz.length];
+		for (int i = 0; i < matriz.length; i++) { // número de filas
+			for (int j = 0; j < matriz[i].length; j++) { // número de columnasde
+				acum[i] += matriz[i][j];
+			}
+		}
+		return acum;
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------------
+	public int[] SumaMatrizcolumnasEnteros(int[][] matriz) {
+		// calculamos el numero maximo de columnas
+		int numColumnas = 0;
+		for (int i = 0; i < matriz.length; i++) {
+			if (matriz[i].length > numColumnas)
+				numColumnas = matriz[i].length;
+		}
+		// recorrer la matriz por columnas
+		int[] acum = new int[matriz.length];
+		for (int j = 0; j < numColumnas; j++) { 
+			for (int i = 0; i < matriz.length; i++) {
+				//try {
+				if (j < matriz[i].length) {
+					acum[i] += matriz[i][j];}
+				/*} catch (Exception e) {
+				}*/
+			}
+		}
+		return acum;
+	}
 	// ---------------------------------------------------------------------------------------------------------------------
 
 	public int[] mezclaArrayEnteros(int[] a1, int[] a2) {

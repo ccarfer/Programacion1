@@ -62,10 +62,24 @@ public class Ejercicios1 {
 		 * System.out.println("Mezcla terminada"); }
 		 */
 
-		int[][] matriz = { { 1, 4, 3 }, { 5, 8 }, { 2, 7, 6, 9 } };
-		//int[] Sumafilas = ej1.SumaMatrizfilasEnteros(matriz);
-		int[] Sumacolumnas = ej1.SumaMatrizcolumnasEnteros(matriz);
-		System.out.println("Suma matriz terminada");
+		// int[][] matriz = { { 1, 4, 3 }, { 5, 8 }, { 2, 7, 6, 9 } };
+		// int[] Sumafilas = ej1.SumaMatrizfilasEnteros(matriz);
+		// int[] Sumacolumnas = ej1.SumaMatrizcolumnasEnteros(matriz);
+		// System.out.println("Suma matriz terminada");
+		int saldoinicial = 250;
+		int[] movimientoCuenta = { 250, -125, 45, -15, 210 };
+		int saldofinal = ej1.CalculaSaldoFinal(movimientoCuenta, saldoinicial);
+		System.out.println("El resultado es " + saldofinal);
+
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------------
+	public int CalculaSaldoFinal(int[] movimientoCuenta, int saldoinicial) {
+		int saldofinal = saldoinicial;
+		for (int i = 0; i < movimientoCuenta.length; i++) {
+			saldofinal += movimientoCuenta[i];
+		}
+		return saldofinal;
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------
@@ -89,13 +103,15 @@ public class Ejercicios1 {
 		}
 		// recorrer la matriz por columnas
 		int[] acum = new int[matriz.length];
-		for (int j = 0; j < numColumnas; j++) { 
+		for (int j = 0; j < numColumnas; j++) {
 			for (int i = 0; i < matriz.length; i++) {
-				//try {
+				// try {
 				if (j < matriz[i].length) {
-					acum[i] += matriz[i][j];}
-				/*} catch (Exception e) {
-				}*/
+					acum[i] += matriz[i][j];
+				}
+				/*
+				 * } catch (Exception e) { }
+				 */
 			}
 		}
 		return acum;
